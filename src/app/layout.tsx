@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { type_second } from './functions/fonts';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Dogs Next',

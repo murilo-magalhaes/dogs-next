@@ -3,7 +3,6 @@
 import { TOKEN_POST } from '@/functions/api';
 import apiError from '@/functions/api-error';
 import { cookies } from 'next/headers';
-import { use } from 'react';
 
 export default async function login(state: {}, formData: FormData) {
   const username = formData.get('username') as string | null;

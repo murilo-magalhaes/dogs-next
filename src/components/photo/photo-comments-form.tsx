@@ -1,16 +1,17 @@
 'use client';
 
-import React from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import styles from './photo-comments-form.module.css';
 import EnviarIcon from '@/icons/enviar-icon';
 import ErrorMessage from '../helper/error-message';
+import { Comment } from '@/actions/photo-get';
 import commentPost from '@/actions/comment-post';
+import React from 'react';
 
 function FormButton() {
   const { pending } = useFormStatus();
   return (
-    <button className={styles.button} disabled={pending}>
+    <button type="submit" className={styles.button} disabled={pending}>
       <EnviarIcon />
     </button>
   );
@@ -22,7 +23,7 @@ export default function PhotoCommentsForm({
   setComments,
 }: {
   single: boolean;
-  id: string;
+  id: number;
   setComments: React.Dispatch<React.SetStateAction<Comment[]>>;
 }) {
   const [state, action] = useFormState(commentPost, {
@@ -36,7 +37,7 @@ export default function PhotoCommentsForm({
       setComments(currentComments => [...currentComments, state.data]);
       setComment('');
     }
-  }, [state]);
+  }, [state, setComments]);
 
   const [comment, setComment] = React.useState('');
 
@@ -52,10 +53,10 @@ export default function PhotoCommentsForm({
         id="comment"
         placeholder="Comente..."
         value={comment}
-        onChange={e => setComment(e.currentTarget.value)}
+        onChange={({ target }) => setComment(target.value)}
       ></textarea>
       <FormButton />
-      <ErrorMessage error="" />
+      <ErrorMessage error={state.error} />
     </form>
   );
 }

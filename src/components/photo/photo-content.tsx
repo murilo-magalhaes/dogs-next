@@ -43,11 +43,7 @@ export default function PhotoContent({
           </ul>
         </div>
       </div>
-      <PhotoComments
-        single={single}
-        id={photo.id.toString()}
-        comments={comments}
-      />
+      <PhotoComments single={single} id={photo.id} comments={comments} />
     </div>
   );
 }

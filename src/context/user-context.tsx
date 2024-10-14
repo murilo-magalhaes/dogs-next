@@ -24,6 +24,10 @@ export const useUser = () => {
   return context;
 };
 
+/**
+ * O Provider serve para especificar os parâmetros que serão
+ * urilizados no no Context, e páginas que serão englobadas
+ */
 export function UserContextProvider({
   children,
   user,

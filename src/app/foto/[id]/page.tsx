@@ -1,7 +1,6 @@
 import photoGet from '@/actions/photo-get';
 import PhotoContent from '@/components/photo/photo-content';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 type FotoIdParams = {
   params: {
@@ -27,7 +26,7 @@ export default async function FotoIdPage({
   params: { id: string };
 }) {
   const { data } = await photoGet(params.id);
-  if (!data) return notFound();
+  if (!data) return null;
 
   return (
     <section className="container mainContainer">

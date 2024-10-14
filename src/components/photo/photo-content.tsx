@@ -9,13 +9,13 @@ import { useUser } from '@/context/user-context';
 import Image from 'next/image';
 import { PhotoData } from '@/actions/photo-get';
 
-const PhotoContent = ({
+export default async function PhotoContent({
   data,
   single,
 }: {
   data: PhotoData;
   single: boolean;
-}) => {
+}) {
   const { user } = useUser();
   const { photo, comments } = data;
 
@@ -46,6 +46,4 @@ const PhotoContent = ({
       {/* <PhotoComments single={single} id={photo.id} comments={comments} /> */}
     </div>
   );
-};
-
-export default PhotoContent;
+}

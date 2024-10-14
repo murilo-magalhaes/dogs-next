@@ -37,8 +37,8 @@ export function UserContextProvider({
 
   React.useEffect(() => {
     async function validate() {
-      const { ok } = await validateToken();
-      if (!ok) await logout();
+      // const { ok } = await validateToken();
+      // if (!ok) await logout();
     }
     if (userState) validate();
   }, [userState]);

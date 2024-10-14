@@ -9,7 +9,7 @@ export default async function Home() {
     <section className="container mainContainer">
       <h1 className="title">Dogs Next</h1>
       {photos?.length ? (
-        <Feed photos={photos} />
+        <Feed photos={photos} user={0} />
       ) : (
         <div>
           <p

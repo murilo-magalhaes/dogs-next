@@ -1,3 +1,4 @@
+import LoginPerdeuForm from '@/components/login/login-perdeu-form';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,10 +6,17 @@ export const metadata: Metadata = {
   description: 'Recupere a sua senha',
 };
 
+/** Possivel solução para não tentar pré renderizar uma
+ * página que faz uso de ferramentas do browser
+ *
+ * export const dynamic = 'force-dynamic';
+ */
+
 export default async function LoginPerdeuPage() {
   return (
-    <main>
-      <h1>Perdeu</h1>
-    </main>
+    <div className="animeLeft">
+      <h1 className="title">Perdeu a senha?</h1>
+      <LoginPerdeuForm />
+    </div>
   );
 }

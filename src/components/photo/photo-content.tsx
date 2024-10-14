@@ -2,14 +2,14 @@
 
 import React from 'react';
 import styles from './photo-content.module.css';
-// import PhotoComments from './photo-comments';
+import PhotoComments from './photo-comments';
 import PhotoDelete from './photo-delete';
 import Link from 'next/link';
 import { useUser } from '@/context/user-context';
 import Image from 'next/image';
 import { PhotoData } from '@/actions/photo-get';
 
-export default async function PhotoContent({
+export default function PhotoContent({
   data,
   single,
 }: {
@@ -43,7 +43,11 @@ export default async function PhotoContent({
           </ul>
         </div>
       </div>
-      {/* <PhotoComments single={single} id={photo.id} comments={comments} /> */}
+      <PhotoComments
+        single={single}
+        id={photo.id.toString()}
+        comments={comments}
+      />
     </div>
   );
 }

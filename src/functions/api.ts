@@ -30,3 +30,9 @@ export function PASSWORD_RESET() {
     url: API_URL + '/api/password/reset',
   };
 }
+
+export function PHOTO_POST() {
+  return {
+    url: API_URL + '/api/photo',
+  };
+}
